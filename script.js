@@ -2,6 +2,8 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const addButton = document.querySelector('#add-button');
 const bookList = document.querySelector('#book-list');
+const titleError = document.querySelector('#title-error');
+const authorError = document.querySelector('#author-error');
 
 let bookArray = [];
 
@@ -61,13 +63,30 @@ const addBook = (bookObject) => {
 };
 
 addButton.addEventListener('click', (event) => {
-  const bookObject = {
-    title: title.value,
-    author: author.value,
-  };
-  addBook(bookObject);
-  title.value = '';
-  author.value = '';
-
   event.preventDefault();
+  const bookTitle = title.value.trim();
+  const bookAuthor = author.value.trim();
+  if(!bookTitle || !bookAuthor) {
+    if(!bookTitle) {
+        titleError.textContent = 'Please provide a valid title';
+    } else {
+        titleError.textContent = '';
+    }
+    if (!bookAuthor) {
+        authorError.textContent = 'Please provide a valid author';
+    } else {
+        authorError.textContent = '';
+    }
+  } else {
+    titleError.textContent = '';
+    authorError.textContent = '';
+    const bookObject = {
+      title: title.value,
+      author: author.value,
+    };
+    addBook(bookObject);
+    title.value = '';
+    author.value = '';
+  }
+
 });
