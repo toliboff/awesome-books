@@ -24,3 +24,8 @@
   height: 30px;
   padding: 5px 15px;
 }
+
+.add-form div {
+  display: flex;
+  flex-direction: column;
+}

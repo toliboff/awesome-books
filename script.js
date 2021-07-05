@@ -66,16 +66,16 @@ addButton.addEventListener('click', (event) => {
   event.preventDefault();
   const bookTitle = title.value.trim();
   const bookAuthor = author.value.trim();
-  if(!bookTitle || !bookAuthor) {
-    if(!bookTitle) {
-        titleError.textContent = 'Please provide a valid title';
+  if (!bookTitle || !bookAuthor) {
+    if (!bookTitle) {
+      titleError.textContent = 'Please provide a valid title';
     } else {
-        titleError.textContent = '';
+      titleError.textContent = '';
     }
     if (!bookAuthor) {
-        authorError.textContent = 'Please provide a valid author';
+      authorError.textContent = 'Please provide a valid author';
     } else {
-        authorError.textContent = '';
+      authorError.textContent = '';
     }
   } else {
     titleError.textContent = '';
@@ -88,5 +88,4 @@ addButton.addEventListener('click', (event) => {
     title.value = '';
     author.value = '';
   }
-
 });
