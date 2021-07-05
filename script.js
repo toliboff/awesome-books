@@ -7,6 +7,7 @@ let bookArray = [];
 
 const createBook = (book) => {
   const bookItem = document.createElement('li');
+  bookItem.setAttribute('id', `book${book.id}`);
   const bookDiv = document.createElement('div');
   bookDiv.setAttribute('class', 'book');
   const h1 = document.createElement('h1');
@@ -17,9 +18,12 @@ const createBook = (book) => {
   p.textContent = book.author;
   const hr = document.createElement('hr');
   const removeButton = document.createElement('button');
-  removeButton.id = book.id;
   removeButton.textContent = 'Remove';
   removeButton.setAttribute('class', 'btn');
+  removeButton.setAttribute('class', 'btn');
+  removeButton.onclick =  () => {
+    removeBook(book.id)
+  }
 
   bookDiv.appendChild(h1);
   bookDiv.appendChild(p);
@@ -44,8 +48,9 @@ const displayBooks = (books) => {
 };
 
 const removeBook = (bookId) => {
+  const bookToRemove =  document.querySelector(`#book${bookId}`);
   bookArray = bookArray.filter((book) => book.id !== +bookId);
-  displayBooks(bookArray);
+  bookToRemove.parentNode.removeChild(bookToRemove);
 };
 
 addButton.addEventListener('click', (event) => {
@@ -59,12 +64,6 @@ addButton.addEventListener('click', (event) => {
 
   event.preventDefault();
 
-  const removeButtons = bookList.querySelectorAll('.btn');
-  removeButtons.forEach((book) => {
-    book.addEventListener('click', (event) => {
-      removeBook(event.target.id);
-    });
-  });
 });
 
 displayBooks(bookArray);
