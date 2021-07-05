@@ -5,6 +5,13 @@ const bookList = document.querySelector('#book-list');
 
 let bookArray = [];
 
+const removeBook = (bookId) => {
+  const bookToRemove = document.querySelector(`#book${bookId}`);
+  bookToRemove.parentNode.removeChild(bookToRemove);
+  bookArray = bookArray.filter((book) => book.id !== +bookId);
+  localStorage.setItem('bookDB', JSON.stringify(bookArray));
+};
+
 const createBook = (book) => {
   const bookItem = document.createElement('li');
   bookItem.setAttribute('id', `book${book.id}`);
@@ -21,9 +28,9 @@ const createBook = (book) => {
   removeButton.textContent = 'Remove';
   removeButton.setAttribute('class', 'btn');
   removeButton.setAttribute('class', 'btn');
-  removeButton.onclick =  () => {
-    removeBook(book.id)
-  }
+  removeButton.onclick = () => {
+    removeBook(book.id);
+  };
 
   bookDiv.appendChild(h1);
   bookDiv.appendChild(p);
@@ -34,12 +41,6 @@ const createBook = (book) => {
   return bookItem;
 };
 
-const addBook = (bookObject) => {
-  bookObject.id = bookArray.length + 1;
-  bookArray.unshift(bookObject);
-  bookList.prepend(createBook(bookObject));
-};
-
 const displayBooks = (books) => {
   for (let i = 0; i < books.length; i += 1) {
     const book = books[i];
@@ -47,10 +48,16 @@ const displayBooks = (books) => {
   }
 };
 
-const removeBook = (bookId) => {
-  const bookToRemove =  document.querySelector(`#book${bookId}`);
-  bookArray = bookArray.filter((book) => book.id !== +bookId);
-  bookToRemove.parentNode.removeChild(bookToRemove);
+if (localStorage.getItem('bookDB')) {
+  bookArray = JSON.parse(localStorage.getItem('bookDB'));
+  displayBooks(bookArray);
+}
+
+const addBook = (bookObject) => {
+  bookObject.id = bookArray.length + 1;
+  bookArray.unshift(bookObject);
+  localStorage.setItem('bookDB', JSON.stringify(bookArray));
+  bookList.prepend(createBook(bookObject));
 };
 
 addButton.addEventListener('click', (event) => {
@@ -63,7 +70,4 @@ addButton.addEventListener('click', (event) => {
   author.value = '';
 
   event.preventDefault();
-
 });
-
-displayBooks(bookArray);

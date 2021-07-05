@@ -16,9 +16,13 @@
 - Click on the clipboard icon on the extreme right of the dropdown to copy the repository link
 - In your local PC, open your terminal or command prompt in the folder you would like to clone this repository into
 - Type `git clone (copied link)` on the currently opened terminal or command prompt
-- Remember to change `(copied link)` to `git@github.com:olawale-o/awesome_books.git` which is the name of the repository
+- Remember to change `(copied link)` to `https://github.com/toliboff/awesome-books.git` which is the name of the repository
 
 # Authors
+:bust_in_silhouette: Tolibjon Tolibov
+- GitHub: [@toliboff](https://https://github.com/toliboff)
+- Twitter: [@tolib_tolibov](https://twitter.com/tolib_tolibov)
+- LinkedIn: [Tolibjon](https://linkedin.com/in/tolibjon-tolibov)
 
 :bust_in_silhouette: Omoogun Olawale
 
@@ -29,7 +33,7 @@
 # Contributing
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page.](https://github.com/olawale-o/awesome_books/issues)
+Feel free to check the [issues page.](https://github.com/toliboff/awesome-books/issues)
 
 # Show your support
 Give a :star: if you like this project!
