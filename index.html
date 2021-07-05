@@ -8,7 +8,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
+  <header class="header">
+    <h1>Awesome books</h1>
+  </header>
+
+  <main class="main" id="main">
+    <div class="books">
+      <ul class="list-of-books" id="book-list">
+        
+      </ul>
+    </div>
+    <form class="add-form" id="add-form">
+      <div>
+        <input type="text" name="title" id="title" autocomplete="off">
+        <p id="title-error"></p>
+      </div>
+      <div>
+        <input type="text" name="author" id="author" autocomplete="off">
+        <p id="author-error"></p>
+      </div>
+      <input type="submit" value="Add" id="add-button">
+    </form>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

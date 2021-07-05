@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+}
+
+.main {
+  width: 40%;
+  margin: 25px auto;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+}
+
+.add-form input {
+  margin: 5px;
+  height: 30px;
+  padding: 5px 15px;
+}
+
+.add-form div {
+  display: flex;
+  flex-direction: column;
+}
