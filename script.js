@@ -41,6 +41,7 @@ class BookList {
   }
 
   displayBooks(books) {
+    console.log(books)
     for (let i = 0; i < books.length; i += 1) {
       const book = books[i];
       bookList.appendChild(this.#createBook(book));
@@ -49,6 +50,9 @@ class BookList {
 
   addBook(bookObject) {
     bookObject.id = Date.now();
+    if(this.isStorage()) {
+      this.bookArray = this.getStorage();
+    }
     this.bookArray.unshift(bookObject);
     this.#setStorage(this.bookArray);
     bookList.prepend(this.#createBook(bookObject));
