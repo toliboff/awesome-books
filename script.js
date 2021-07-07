@@ -4,6 +4,11 @@ const addButton = document.querySelector('#add-button');
 const bookList = document.querySelector('#book-list');
 const titleError = document.querySelector('#title-error');
 const authorError = document.querySelector('#author-error');
+const list = document.querySelector('#list');
+const addNew = document.querySelector('#add-new');
+const main  = document.querySelector('.book-container');
+const books = document.querySelector('#books');
+const form  = document.querySelector('#form');
 
 class BookList {
   constructor() {
@@ -133,4 +138,21 @@ window.addEventListener('DOMContentLoaded', () => {
       author.value = '';
     }
   });
+
+  const displayHide = () => {
+    for (let i = 0; i < main.children.length; i += 1) {
+      main.children[i].classList.remove('show');
+      main.children[i].classList.add('hide');
+    }
+  }
+  list.addEventListener('click', () => {
+    displayHide()
+    books.classList.add('show');
+  });
+
+  addNew.addEventListener('click', () => {
+    displayHide();
+    form.classList.add('show');
+  });
+
 });
