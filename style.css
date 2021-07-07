@@ -1,16 +1,69 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
 }
 
 .header {
   text-align: center;
 }
 
-.main {
+.book-container {
   width: 40%;
   margin: 25px auto;
+}
+
+.book {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-item:nth-child(even) {
+  background-color: #eee;
+}
+
+.book-item:nth-child(odd) {
+  background-color: #ccc;
+}
+
+.book__title-author {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 1rem;
+}
+
+.by {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.authour {
+  font-size: 1rem;
+}
+
+.odd {
+  background-color: #ccc;
+}
+
+.even {
+  background-color: #eee;
 }
 
 .add-form {
