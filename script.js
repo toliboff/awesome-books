@@ -6,9 +6,14 @@ const titleError = document.querySelector('#title-error');
 const authorError = document.querySelector('#author-error');
 const list = document.querySelector('#list');
 const addNew = document.querySelector('#add-new');
-const main  = document.querySelector('.book-container');
+const contact = document.querySelector('#contact');
+const main = document.querySelector('.book-container');
 const books = document.querySelector('#books');
-const form  = document.querySelector('#form');
+const form = document.querySelector('#form');
+const contacts = document.querySelector('#contacts');
+const date = document.querySelector('#date');
+const year = document.querySelector('#year');
+const navList = document.querySelector('#nav-list');
 
 class BookList {
   constructor() {
@@ -144,9 +149,24 @@ window.addEventListener('DOMContentLoaded', () => {
       main.children[i].classList.remove('show');
       main.children[i].classList.add('hide');
     }
-  }
+  };
+
+  const links = navList.querySelectorAll('a');
+
+  links.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      navList.querySelectorAll('a').forEach((a) => {
+        if (a.id === event.target.id) {
+          a.classList.add('active');
+        } else {
+          a.classList.remove('active');
+        }
+      });
+    });
+  });
+
   list.addEventListener('click', () => {
-    displayHide()
+    displayHide();
     books.classList.add('show');
   });
 
@@ -155,4 +175,35 @@ window.addEventListener('DOMContentLoaded', () => {
     form.classList.add('show');
   });
 
+  contact.addEventListener('click', () => {
+    displayHide();
+    contacts.classList.add('show');
+  });
+
+  function getNumberSuffix(num) {
+    if (num === 11 || num === 12 || num === 13) return 'th';
+
+    const lastDigit = num.toString().slice(-1);
+
+    switch (lastDigit) {
+      case '1': return 'st';
+      case '2': return 'nd';
+      case '3': return 'rd';
+      default: return 'th';
+    }
+  }
+  /* eslint-disable */
+  const { DateTime } = luxon;
+  /* eslint-enable */
+  setInterval(() => {
+    const today = DateTime.local();
+    const modified = today.toLocaleString({ ...DateTime.DATETIME_MED_WITH_SECONDS, month: 'long' }).split(' ');
+    const dateNum = parseInt(modified[1], 10);
+    modified[1] = dateNum + getNumberSuffix(dateNum);
+    modified[modified.length - 1] = (modified[modified.length - 1]).toLowerCase();
+    date.innerHTML = modified.join(' ');
+  }, 1000);
+
+  const y = DateTime.now();
+  year.textContent = y.year;
 });
