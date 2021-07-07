@@ -1,28 +1,94 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.header {
-  text-align: center;
+li {
+  list-style: none;
+}
+
+h2 {
+  margin: 25px auto;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
 }
 
 .main {
+  text-align: center;
+}
+
+.header {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.book-container {
   width: 40%;
   margin: 25px auto;
+}
+
+.book {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-item:nth-child(even) {
+  background-color: #eee;
+}
+
+.book-item:nth-child(odd) {
+  background-color: #ccc;
+}
+
+.book__title-author {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 1rem;
+}
+
+.by {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.authour {
+  font-size: 1rem;
+}
+
+.line {
+  width: 85px;
+  border-bottom: 2px solid rgb(95, 95, 95);
+  margin: 15px auto;
 }
 
 .add-form {
   display: flex;
   flex-direction: column;
-  padding: 10%;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .add-form input {
   margin: 5px;
   height: 30px;
   padding: 5px 15px;
+}
+
+.add-form input[type="submit"] {
+  align-self: flex-end;
+  padding: 5px 25px;
 }
 
 .add-form div {
