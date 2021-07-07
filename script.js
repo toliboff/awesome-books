@@ -11,18 +11,23 @@ class BookList {
     this.key = 'bookDB';
   }
 
-  #createBook(book) {
+  #createBook(book, bookNumber) {
     const bookItem = document.createElement('li');
     bookItem.setAttribute('id', `book${book.id}`);
+    bookItem.setAttribute('class', 'book-item');
     const bookDiv = document.createElement('div');
     bookDiv.setAttribute('class', 'book');
+    const bookTitleAuthor = document.createElement('div');
+    bookTitleAuthor.setAttribute('class', 'book__title-author')
     const h1 = document.createElement('h1');
     h1.setAttribute('class', 'title');
-    h1.textContent = book.title;
+    h1.textContent = `"${book.title}"`;
+    const bySpan = document.createElement('span');
+    bySpan.textContent = ' by ';
+    bySpan.setAttribute('class', 'by');
     const p = document.createElement('p');
     p.setAttribute('class', 'authour');
-    p.textContent = book.author;
-    const hr = document.createElement('hr');
+    p.textContent = `${book.author}`;
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.setAttribute('class', 'btn');
@@ -31,9 +36,10 @@ class BookList {
       this.removeBook(book.id);
     };
 
-    bookDiv.appendChild(h1);
-    bookDiv.appendChild(p);
-    bookDiv.appendChild(hr);
+    bookTitleAuthor.appendChild(h1);
+    bookTitleAuthor.appendChild(bySpan);
+    bookTitleAuthor.appendChild(p);
+    bookDiv.appendChild(bookTitleAuthor)
     bookDiv.appendChild(removeButton);
     bookItem.appendChild(bookDiv);
 
@@ -43,8 +49,9 @@ class BookList {
   displayBooks(books) {
     for (let i = 0; i < books.length; i += 1) {
       const book = books[i];
-      bookList.appendChild(this.#createBook(book));
+      bookList.appendChild(this.#createBook(book, i));
     }
+    this.#isChildrenInDom();
   }
 
   addBook(bookObject) {
@@ -52,9 +59,11 @@ class BookList {
     if (this.isStorage()) {
       this.bookArray = this.getStorage();
     }
+    const i = this.bookArray.length === 0 ? 1 : this.bookArray.length + 1;
     this.bookArray.unshift(bookObject);
     this.#setStorage(this.bookArray);
-    bookList.prepend(this.#createBook(bookObject));
+    bookList.prepend(this.#createBook(bookObject, i));
+    this.#isChildrenInDom();
   }
 
   removeBook(bookId) {
@@ -62,6 +71,7 @@ class BookList {
     bookToRemove.parentNode.removeChild(bookToRemove);
     this.bookArray = this.getStorage().filter((book) => book.id !== +bookId);
     this.#setStorage(this.bookArray);
+    this.#isChildrenInDom();
   }
 
   #setStorage(data) {
@@ -78,6 +88,15 @@ class BookList {
     }
     return false;
   }
+
+  #isChildrenInDom() {
+    if (bookList.hasChildNodes()) {
+      bookList.style.border = '2px solid #000';
+    } else {
+      bookList.style.border = 'none';
+    }
+  }
+
 }
 
 window.addEventListener('DOMContentLoaded', () => {
