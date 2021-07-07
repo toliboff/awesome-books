@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   text-decoration: none;
 }
@@ -16,6 +22,7 @@ li {
 
 h2 {
   margin: 25px auto;
+  font-size: 1.7rem;
 }
 
 button,
@@ -78,17 +85,17 @@ input[type="submit"] {
   color: #000;
 }
 
-.nav-link:focus{
-  color: blue
+.active {
+  color: blue;
 }
 
 .date {
   text-align: right;
+  margin-right: 4px;
 }
 
 .main {
   text-align: center;
-  /* min-height: 700px; */
 }
 
 .book-container {
@@ -98,6 +105,10 @@ input[type="submit"] {
 
 .books {
   margin-top: 30px;
+}
+
+.list-of-books button {
+  padding: 5px 15px;
 }
 
 .book-heading {
@@ -138,10 +149,9 @@ input[type="submit"] {
   font-size: 1rem;
 }
 
-.line {
-  width: 85px;
-  border-bottom: 2px solid rgb(95, 95, 95);
-  margin: 15px auto;
+.form {
+  width: 50%;
+  margin: auto;
 }
 
 .add-form {
@@ -152,7 +162,7 @@ input[type="submit"] {
 }
 
 .add-form input {
-  margin: 5px;
+  margin-top: 25px;
   height: 30px;
   padding: 5px 15px;
 }
@@ -167,8 +177,31 @@ input[type="submit"] {
   flex-direction: column;
 }
 
+.contacts {
+  font-size: 1.3rem;
+  text-align: left;
+  width: 40%;
+  margin: 0 auto;
+  line-height: 2.2rem;
+}
+
+.contacts h2 {
+  margin-bottom: 55px;
+  text-align: center;
+}
+
+.contacts ul {
+  margin-left: 35px;
+}
+
+.contacts li::before {
+  content: "-";
+  margin: 0 10px;
+}
+
 .footer {
   padding: 5px;
+  margin-top: auto;
 }
 
 .copyright {
