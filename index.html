@@ -9,26 +9,28 @@
 </head>
 <body>
   <header class="header">
-    <h1>Awesome books</h1>
+    <h1>All awesome books</h1>
   </header>
 
   <main class="main" id="main">
-    <div class="books">
-      <ul class="list-of-books" id="book-list">
-        
-      </ul>
-    </div>
-    <form class="add-form" id="add-form">
-      <div>
-        <input type="text" name="title" id="title" autocomplete="off" placeholder="Title">
-        <p id="title-error"></p>
+    <section class="book-section">
+      <div class="book-container">
+        <div class="books">
+          <ul class="list-of-books" id="book-list"></ul>
+        </div>
+        <form class="add-form" id="add-form">
+          <div>
+            <input type="text" name="title" id="title" autocomplete="off" placeholder="Title">
+            <p id="title-error"></p>
+          </div>
+          <div>
+            <input type="text" name="author" id="author" autocomplete="off" placeholder="Author">
+            <p id="author-error"></p>
+          </div>
+          <input type="submit" value="Add" id="add-button">
+        </form>
       </div>
-      <div>
-        <input type="text" name="author" id="author" autocomplete="off" placeholder="Author">
-        <p id="author-error"></p>
-      </div>
-      <input type="submit" value="Add" id="add-button">
-    </form>
+    </section>
   </main>
   <script src="script.js"></script>
 </body>
