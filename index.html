@@ -9,31 +9,58 @@
 </head>
 <body>
   <header class="header">
-    <h2>All awesome books</h2>
+    <nav class="nav">
+      <div class="logo">
+        <a href="#">Awesome Books</a>
+      </div>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button" id="list">List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button" id="add-new">Add new</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button" id="contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <p class="date">March 19th 2021, 9:25:32 am</p>
   </header>
-
+  
   <main class="main" id="main">
     <section class="book-section">
       <div class="book-container">
-        <div class="books">
+        <div class="books" id="books">
+          <div class="book-heading">
+            <h2>All awesome books</h2>
+          </div>
           <ul class="list-of-books" id="book-list"></ul>
         </div>
-        <div class="line"></div>
-        <h2>Add a new book</h2>
-        <form class="add-form" id="add-form">
-          <div>
-            <input type="text" name="title" id="title" autocomplete="off" placeholder="Title">
-            <p id="title-error"></p>
-          </div>
-          <div>
-            <input type="text" name="author" id="author" autocomplete="off" placeholder="Author">
-            <p id="author-error"></p>
-          </div>
-          <input type="submit" value="Add" id="add-button">
-        </form>
+        <!-- <div class="line"></div> -->
+        <div class="form hide" id="form">
+          <h2>Add a new book</h2>
+          <form class="add-form" id="add-form">
+            <div>
+              <input type="text" name="title" id="title" autocomplete="off" placeholder="Title">
+              <p id="title-error"></p>
+            </div>
+            <div>
+              <input type="text" name="author" id="author" autocomplete="off" placeholder="Author">
+              <p id="author-error"></p>
+            </div>
+            <input type="submit" value="Add" id="add-button">
+          </form>
+        </div>
       </div>
     </section>
   </main>
+  <footer class="footer">
+    <div class="copyright">
+      <p>Copyright</p>
+      <p>All rights reserved <span class="year">2021</span></p>
+    </div>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
