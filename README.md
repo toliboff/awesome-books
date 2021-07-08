@@ -2,7 +2,7 @@
 
 > This is a project that displays a list of books and allows you to add and remove books from that list.
 # Screenshot
-![screenshot](https://github.com/toliboff/awesome-books/blob/main/assets/screenshot.png?raw=true")
+![screenshot](https://github.com/toliboff/awesome-books/blob/nav-contact-section/assets/screenshot.png?raw=true")
 # Built With
 
 - HTML
