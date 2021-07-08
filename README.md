@@ -8,6 +8,10 @@
 - CSS
 - JAVASCRIPT
 
+## Live Demo
+
+[Live Demo Link](https://toliboff.github.io/awesome-books/)
+
 # Getting started
 
 ## To get a local copy of this repository kindly follow the steps below.
