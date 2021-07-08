@@ -181,7 +181,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   function getNumberSuffix(num) {
-    if (num === 11 || num === 12 || num === 13) return 'th';
+    if (num >= 11 && num <= 13) return 'th';
 
     const lastDigit = num.toString().slice(-1);
 
