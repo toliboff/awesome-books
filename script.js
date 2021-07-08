@@ -22,7 +22,7 @@ class BookList {
     this.border = '2px solid #000';
   }
 
-  #createBook(book) {
+  createBook(book) {
     const bookItem = document.createElement('li');
     bookItem.setAttribute('id', `book${book.id}`);
     bookItem.setAttribute('class', 'book-item');
@@ -60,9 +60,9 @@ class BookList {
   displayBooks(books) {
     for (let i = 0; i < books.length; i += 1) {
       const book = books[i];
-      bookList.appendChild(this.#createBook(book, i));
+      bookList.appendChild(this.createBook(book, i));
     }
-    this.#isChildrenInDom();
+    this.isChildrenInDom();
   }
 
   addBook(bookObject) {
@@ -72,20 +72,20 @@ class BookList {
     }
     const i = this.bookArray.length === 0 ? 1 : this.bookArray.length + 1;
     this.bookArray.unshift(bookObject);
-    this.#setStorage(this.bookArray);
-    bookList.prepend(this.#createBook(bookObject, i));
-    this.#isChildrenInDom();
+    this.setStorage(this.bookArray);
+    bookList.prepend(this.createBook(bookObject, i));
+    this.isChildrenInDom();
   }
 
   removeBook(bookId) {
     const bookToRemove = document.querySelector(`#book${bookId}`);
     bookToRemove.parentNode.removeChild(bookToRemove);
     this.bookArray = this.getStorage().filter((book) => book.id !== +bookId);
-    this.#setStorage(this.bookArray);
-    this.#isChildrenInDom();
+    this.setStorage(this.bookArray);
+    this.isChildrenInDom();
   }
 
-  #setStorage(data) {
+  setStorage(data) {
     localStorage.setItem(this.key, JSON.stringify(data));
   }
 
@@ -100,7 +100,7 @@ class BookList {
     return false;
   }
 
-  #isChildrenInDom() {
+  isChildrenInDom() {
     if (bookList.hasChildNodes()) {
       bookList.style.border = this.border;
     } else {
