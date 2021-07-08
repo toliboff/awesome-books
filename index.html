@@ -9,31 +9,70 @@
 </head>
 <body>
   <header class="header">
-    <h2>All awesome books</h2>
+    <nav class="nav">
+      <div class="logo">
+        <a href="#">Awesome Books</a>
+      </div>
+      <ul class="nav-list" id="nav-list">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" role="button" id="list">List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button" id="add-new">Add new</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button" id="contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <p class="date" id="date"></p>
   </header>
-
+  
   <main class="main" id="main">
     <section class="book-section">
       <div class="book-container">
-        <div class="books">
+        <div class="books" id="books">
+          <div class="book-heading">
+            <h2>All awesome books</h2>
+          </div>
           <ul class="list-of-books" id="book-list"></ul>
         </div>
-        <div class="line"></div>
-        <h2>Add a new book</h2>
-        <form class="add-form" id="add-form">
-          <div>
-            <input type="text" name="title" id="title" autocomplete="off" placeholder="Title">
-            <p id="title-error"></p>
-          </div>
-          <div>
-            <input type="text" name="author" id="author" autocomplete="off" placeholder="Author">
-            <p id="author-error"></p>
-          </div>
-          <input type="submit" value="Add" id="add-button">
-        </form>
+
+        <div class="form hide" id="form">
+          <h2>Add a new book</h2>
+          <form class="add-form" id="add-form">
+            <div>
+              <input type="text" name="title" id="title" autocomplete="off" placeholder="Title">
+              <p id="title-error"></p>
+            </div>
+            <div>
+              <input type="text" name="author" id="author" autocomplete="off" placeholder="Author">
+              <p id="author-error"></p>
+            </div>
+            <input type="submit" value="Add" id="add-button">
+          </form>
+        </div>
+
+        <div class="contacts hide" id="contacts">
+          <h2>Contact information</h2>
+          <p class="contact_p">Do you have any questions or you just want to say "Hello"?</p>
+          <p class="contact_p">You can reach out to us!</p>
+          <ul>
+            <li>Our email: <a href="mailto:support@awesomebooks.com">support@awesomebooks.com</a></li>
+            <li>Our phone number: <a href="tel:0013586534422">0013586534422</a></li>
+            <li>Our address: Wall Street 77, 84503 New York, USA</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
+  <footer class="footer">
+    <div class="copyright">
+      <p>Copyright</p>
+      <p>All rights reserved <span class="year" id="year"></span></p>
+    </div>
+  </footer>
+  <script src="luxon.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
